@@ -1,6 +1,23 @@
-fun main(args: Array<String>) {
+/*fun main(args: Array<String>) {
     println("\nYour fortune is: {${getFortuneCookie()}}")
+}*/
+
+fun main(args: Array<String>) {
+    var fortune: String
+    for (i in 1..10) {
+        fortune = getFortune(getBirthday())
+        println("\nYour fortune is: $fortune")
+        if (fortune.contains("Take it easy")) break;
+    }
 }
+
+fun getBirthday() : Int {
+    print("\nEnter your birthday: ")
+    val birthday = readLine()?.toIntOrNull() ?: 1
+    return birthday
+}
+
+fun getFortune
 
 fun getFortuneCookie() : String {
     val fortuneCookie = listOf<String>("You will have a great day!"
