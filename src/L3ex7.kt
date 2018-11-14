@@ -3,12 +3,16 @@
 }*/
 
 fun main(args: Array<String>) {
-    var fortune: String
+    /*var fortune: String
     for (i in 1..10) {
         fortune = getFortune(getBirthday())
         println("\nYour fortune is: $fortune")
         if (fortune.contains("Take it easy")) break;
-    }
+    }*/
+    canAddFish(10.0, listOf(3,3,3))
+    canAddFish(8.0, listOf(2,2,2), hasDecorations = false)
+    canAddFish(9.0, listOf(1,1,3), 3)
+    canAddFish(10.0, listOf(), 7, true)
 }
 
 fun getBirthday() : Int {
@@ -46,4 +50,13 @@ fun getFortuneCookie() : String {
     print("\nEnter your birthday: ")
     val birthday = readLine()?.toIntOrNull() ?: 1
     return fortuneCookie[birthday.rem(fortuneCookie.size)]
+}
+
+fun canAddFish(tankSize: Double, currentFish: List<Int>, fishSize: Int = 2, hasDecorations: Boolean = true): Boolean {
+    if (hasDecorations) {
+        return (currentFish.sum() + fishSize <= tankSize * 0.8)
+    } else {
+        return (currentFish.sum() + fishSize <= tankSize)
+    }
+
 }
